@@ -10,6 +10,7 @@ $this->title = 'blog';
         <h1 class="display-4">Blogs</h1>
         <table class="table table-hover">
   <thead>
+  
     <tr>
       <th scope="col">Title</th>
       <th scope="col">Date</th>
@@ -18,20 +19,26 @@ $this->title = 'blog';
     </tr>
   </thead>
   <tbody>
+  <?php if (count($posts)>0): ?>
+    <?php foreach($posts as $post): ?>
     <tr class="table-active">
-      <th scope="row">Active</th>
-      <td>Column content</td>
-      <td>Column content</td>
+      <th scope="row"><?php echo $post->Title; ?></th>
+      <td><?php echo $post->Date;?></td>
+      <td><?php echo $post->Contrnt;?></td>
       <td>
         <span><?= html::a('view') ?></span>
         <span><?= html::a('update') ?></span>
         <span><?= html::a('delete') ?></span>
       </td>
     </tr>
-    
+    <?php endforeach; ?>
+    <?php else:  ?>
+      <tr>
+        <td>Norecords Found</td>
+      </tr>
+      <?php endif  ?>
   </tbody>
 </table>
 
-<?php print_r($posts); ?>
     </div>
 </div>

@@ -9,7 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\Post;
+use app\models\post;
 
 class SiteController extends Controller
 {
@@ -62,8 +62,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $posts = Post::find()->all();
-        return $this->render('home',['post'=> $posts]);
+        $posts = post::find()->all();
+        return $this->render('home',['posts'=>$posts]);
     }
 
     /**

@@ -66,6 +66,21 @@ class SiteController extends Controller
         return $this->render('home',['posts'=>$posts]);
     }
 
+
+    public function actionCreate(){
+        $post = new post();
+        $formData = yii::$app->request->post();
+        if($post->load($formData)){
+            if($post->save()){
+                yii::$app->getSession()->setFlash('message','post created Succcesfull');
+                return $this->redirect(['index']);
+            }
+            else{
+                yii::$app->getSession()->setFlash('message','failed to post');
+            }
+        }
+        return $this->render('create', ['post'=>$post]);
+    }
     /**
      * Login action.
      *

@@ -8,6 +8,11 @@ $this->title = 'blog';
 
     <div class="jumbotron text-center bg-transparent">
         <h1 class="display-4">Blogs</h1>
+
+        <div class="row">
+          <span><?=Html::a('Create',['/site/create'], ['class' => 'btn btn-primary'])?></span>
+
+        </div>
         <table class="table table-hover">
   <thead>
   
